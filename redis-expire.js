@@ -9,7 +9,7 @@ await client.connect();
 
 await client.set('key2','2valuee2',{EX:10})
 await client.set('key3','3valuee3',{EX:20})
-await client.set('key1','1valuee1',{EX:30})
+await client.set('key1',1951981651,{EX:30})
 
 const value = await client.get('key1');
 console.log(value)
@@ -28,9 +28,10 @@ setInterval(async() => {
     const v1 = await client.get('key1')
     const v2 = await client.get('key2')
     const v3 = await client.get('key3')
-
+    const memory = await client.sendCommand(['MEMORY', 'USAGE','key1']);
     // const ttl= await client.sendCommand(['TTL', 'key2']);
     // console.log(ttl)
+    console.log('MEMORY USAGE=>',memory,'bytes')
     // console.log('LOG',v1,v2,v3, count+'s')
 }, 1000);
 
