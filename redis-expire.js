@@ -29,9 +29,9 @@ setInterval(async() => {
     const v2 = await client.get('key2')
     const v3 = await client.get('key3')
     const memory = await client.sendCommand(['MEMORY', 'USAGE','key1']);
+    console.log('MEMORY USAGE=>',memory,'bytes')
     // const ttl= await client.sendCommand(['TTL', 'key2']);
     // console.log(ttl)
-    console.log('MEMORY USAGE=>',memory,'bytes')
     // console.log('LOG',v1,v2,v3, count+'s')
 }, 1000);
 
